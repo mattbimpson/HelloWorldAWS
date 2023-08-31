@@ -14,7 +14,3 @@ provider "aws" {
 module "apigateway" {
   source = "./ApiGateway"
 }
-
-module "lambda" {
-  source = "./Lambda"
-}
