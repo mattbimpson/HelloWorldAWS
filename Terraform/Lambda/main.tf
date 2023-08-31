@@ -41,10 +41,17 @@ resource "aws_iam_role_policy_attachment" "examplePolicyAttachment" {
   role = aws_iam_role.lambdaRole.name
 }
 
+data "archive_file" "lambda_output" {
+  type = "zip"
+
+  source_dir  = "../Lambda/build"
+  output_path = "./lambda-output.zip"
+}
+
 resource "aws_lambda_function" "helloWorldLambda" {
   function_name    = "hello-world"
-  filename         = "hello-world-lambda_payload.zip"
-  source_code_hash = filebase64sha256("hello-world-lambda_payload.zip")
+  filename         = "lambda-output.zip"
+  source_code_hash = filebase64sha256("lambda-output.zip")
   handler          = "index.handler"
   role             = aws_iam_role.lambdaRole.arn
   runtime          = "nodejs14.x"
