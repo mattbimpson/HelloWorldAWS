@@ -10,3 +10,4 @@ export AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
 
 - Run 'terraform plan' to preview any changes to be made by terraform
 - Run 'terraform apply' to deploy your changes
+- Run 'terraform destroy' to revert all changes, removing all resources previously created
