@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ./",
-    "type-check": "tsc --noEmit --skipLibCheck -p tsconfig.json"
+    "type-check": "tsc --noEmit --skipLibCheck -p tsconfig.json",
+    "build": "tsc"
   },
   "author": "matt bimpson",
   "license": "ISC",
