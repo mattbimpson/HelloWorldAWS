@@ -34,10 +34,6 @@ resource "aws_lambda_function" "helloWorldLambda" {
   handler          = "index.handler"
   role             = aws_iam_role.lambdaRole.arn
   runtime          = "nodejs14.x"
-  # vpc_config {
-  #   subnet_ids = [aws_subnet.example.id]
-  #   security_group_ids = [aws_security_group.example.id]
-  # }
 }
 
 output "invokeArn" {
