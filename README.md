@@ -5,6 +5,7 @@
 - To run the terraform scripts, first add the following env variables to your terminal environment, if not already configured in an aws config file:
 
 export AWS_ACCESS_KEY_ID=your_aws_access_key
+
 export AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
 
 - Run 'terraform plan' to preview any changes to be made by terraform
