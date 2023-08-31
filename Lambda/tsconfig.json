@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": ".",
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ES2021"]
+  },
+  // aws is installed on CI we should not apply type checking to it
+  "exclude": ["node_modules", "aws"]
+}
