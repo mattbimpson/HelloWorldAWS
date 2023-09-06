@@ -4,7 +4,7 @@ module "lambda" {
 
 resource "aws_api_gateway_rest_api" "HelloWorldAPI" {
   name = "hello-world-api"
-  # api_key_source = "HEADER"
+  api_key_source = "HEADER"
 }
 
 resource "aws_api_gateway_resource" "helloResource" {
@@ -18,9 +18,9 @@ resource "aws_api_gateway_method" "GetHelloWorldMethod" {
   resource_id   = aws_api_gateway_resource.helloResource.id
   http_method   = "GET"
   authorization = "NONE"
-  # request_parameters = {
-  #   "method.request.header.x-api-key" = true
-  # }
+  request_parameters = {
+    "method.request.header.x-api-key" = true
+  }
 }
 
 resource "aws_api_gateway_integration" "Integration" {
@@ -35,5 +35,5 @@ resource "aws_api_gateway_integration" "Integration" {
 resource "aws_api_gateway_deployment" "DeploymentDev" {
   depends_on    = [aws_api_gateway_rest_api.HelloWorldAPI]
   rest_api_id   = aws_api_gateway_rest_api.HelloWorldAPI.id
-  stage_name    = "dev" 
+  stage_name    = "dev"
 }
