@@ -36,6 +36,13 @@ resource "aws_lambda_function" "helloWorldLambda" {
   runtime          = "nodejs14.x"
 }
 
+resource "aws_lambda_permission" "apigw_lambda" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.helloWorldLambda.function_name
+  principal     = "apigateway.amazonaws.com"
+}
+
 output "invokeArn" {
   value = aws_lambda_function.helloWorldLambda.invoke_arn
 }
