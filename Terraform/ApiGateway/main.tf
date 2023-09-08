@@ -29,7 +29,7 @@ resource "aws_api_gateway_integration" "Integration" {
 }
 
 resource "aws_api_gateway_deployment" "DeploymentDev" {
-  depends_on    = [aws_api_gateway_rest_api.HelloWorldAPI]
+  depends_on    = [aws_api_gateway_rest_api.HelloWorldAPI, aws_api_gateway_integration.Integration]
   rest_api_id   = aws_api_gateway_rest_api.HelloWorldAPI.id
   stage_name    = "dev"
 }
